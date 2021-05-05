@@ -111,20 +111,28 @@ def scraper(url, resp):
         
         # create tokenizer that separates based on groups of whitespace
         reg_tokenizer = RegexpTokenizer('\s+', gaps=True)
+<<<<<<< HEAD
 
         # create a regex object to match nonalphanumeric characters so we can remove them later on
         alphanum_word = re.compile(r'\W')
 
         # iterate over all words that tokenizer returns
+=======
+        alphanum_word = re.compile(r'\W')
+>>>>>>> 72ce8a8e994815bee867cb58d97a29b77546ce1d
         for word in reg_tokenizer.tokenize(text):
             # if a word is not composed of only non-alphanumeric characters, or if it is greater than one character
             # then we want to keep it
             if not re.match(r'^(\W+|^[\w+])$', word):
+<<<<<<< HEAD
                 # remove all non-alphanumeric characters from the word
                 sanitized_word = alphanum_word.sub("", word)
 
                 # LOW INFO VALUE: if length of word is greater than 1, add to word_token list
                 #                 we do this to retain only relevant words
+=======
+                sanitized_word = alphanum_word.sub("", word)
+>>>>>>> 72ce8a8e994815bee867cb58d97a29b77546ce1d
                 if len(sanitized_word) > 1: 
                     word_tokens.append(sanitized_word)
 
